@@ -1,5 +1,6 @@
 package com.example.creatorstore.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class OrderItem {
     @Column(name = "price_at_purchase", nullable = false)
     private BigDecimal priceAtPurchase;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
